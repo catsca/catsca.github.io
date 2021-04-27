@@ -20,7 +20,8 @@ const Confirm = ({values, form, ...props}) => {
             firstPerson: form.firstPersonName,
             secondPerson: form.secondPersonName,
             specialMn: form.specialMenu,
-            childrenNum: form.childrenNumber
+            specialMnAlrg: form.specialMenuAlergies,
+            childrenNum: form.childrenAge
           };
 
         cookies.set('alreadySent', '1', { path: '/',  maxAge: 60*60*24*60 });
@@ -53,40 +54,42 @@ const Confirm = ({values, form, ...props}) => {
         )
     } 
 
-    if(form.childrenNumber && form.childrenNumber == 0) {
+    if(form.childrenAge && form.childrenAge == 'nope') {
         ChildNumber = (''
         )
-    } else if(form.childrenNumber && form.childrenNumber == 1) {
+    } else {
         ChildNumber = (
             <List>
                 <ListItem>
-                    Aduci 1 copil.
+                    Vei veni si cu: {form.childrenAge}.
                     <Input 
-                        id="childrenNum" 
-                        value={form.childrenNumber} 
-                        name="childrenNum"
+                        id="childrenAg" 
+                        value={form.childrenAge} 
+                        name="childrenAg"
                         type="hidden"
                     />
                 </ListItem>
             </List>
         )
-    } else  if(form.childrenNumber) {
-        ChildNumber = (
+    } 
+
+    if (form.specialMenu && form.specialMenu == 'cu alergii la') {
+        SpecialMenuItem = (
             <List>
                 <ListItem>
-                    Aduci { form.childrenNumber } copii.
-                    <Input 
-                        id="childrenNum" 
-                        value={form.childrenNumber} 
-                        name="childrenNum"
-                        type="hidden"
-                    />
+                        Esti alergic la { form.specialMenuAlergies }.
+                        <Input 
+                            id="specialMnAlrg" 
+                            value={form.specialMenuAlergies} 
+                            name="specialMnAlrg"
+                            type="hidden"
+                        />
                 </ListItem>
             </List>
         )
     }
-
-    if(form.specialMenu && form.specialMenu !== 'normal') {
+    
+    else if (form.specialMenu && form.specialMenu !== 'normal') {
         SpecialMenuItem = (
             <List>
                 <ListItem>
