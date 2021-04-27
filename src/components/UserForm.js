@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import FormUserDetails from './FormUserDetails';
+import FormUserChildren from './FormUserChildren';
+import FormUserMenu from './FormUserMenu';
 import FormBoolean from './FormBoolean';
 import Confirm from './Confirm';
 import Success from './Success';
 import Fail from './Fail';
 import Cookies from 'universal-cookie';
-import emailjs from 'emailjs-com';
 
 const UserForm = (props) => {
 
     const cookies = new Cookies();
   
     const [step, setStep] = useState(1);
+    const [firstPersonName, setFirstPersonName] = useState();
     const [secondPersonName, setSecondPersonName] = useState();
     const [plusOne, setPlusOne] = useState();
     const [childrenNumber, setChildrenNumber] = useState();
+    const [childrenAge, setChildrenAge] = useState();
     const [specialMenu, setSpecialMenu] = useState();
+    const [specialMenuAlergies, setspecialMenuAlergies] = useState();
     
     const [form, setForm] = useState({
     });
@@ -24,7 +28,7 @@ const UserForm = (props) => {
 
     const prevStep = () => setStep(step - 1);
 
-    const failStep = () => setStep(5);
+    const failStep = () => setStep(7);
 
     const handleChange = (value, name) => setForm({
         ...form,
@@ -54,8 +58,28 @@ const UserForm = (props) => {
                         form={form}
                     />
                 );
-    
+            
             case 3:
+                return (
+                    <FormUserChildren
+                        nextStep = {nextStep}
+                        prevStep = {prevStep}
+                        handleChange = {handleChange}
+                        form={form}
+                    />
+                )
+
+            case 4:
+                return (
+                    <FormUserMenu
+                        nextStep = {nextStep}
+                        prevStep = {prevStep}
+                        handleChange = {handleChange}
+                        form={form}
+                    />
+                )
+    
+            case 5:
                 return (
                     <Confirm 
                         nextStep = {nextStep}
@@ -65,11 +89,12 @@ const UserForm = (props) => {
                     />
                 )
     
-            case 4: 
+            case 6: 
                 return <Success />
             
-            case 5:
+            case 7:
                 return <Fail />
+
             default:
                 return <Success />
         }
