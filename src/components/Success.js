@@ -31,7 +31,7 @@ const Success = (props) => {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <h4>Mai jos, poti vedea cum ajungi la cunuie si la petrecere</h4>
+                <h4>Mai jos, poti vedea cum ajungi la cununie si la petrecere</h4>
                 <Button
                     startIcon={< MapIcon />}
                     variant="contained"
