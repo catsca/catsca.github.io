@@ -57,10 +57,7 @@ const Confirm = ({values, form, ...props}) => {
         )
     } 
 
-    if(form.childrenAge && form.childrenAge == 'yup') {
-        ChildNumber = (''
-        )
-    } else {
+    if(form.childrenNumber && form.childrenNumber == 'yup') {
         ChildNumber = (
             <List>
                 <ListItem>
