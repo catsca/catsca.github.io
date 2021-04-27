@@ -1,14 +1,14 @@
 import './App.scss';
 import UserForm from './components/UserForm';
 
-function App() {
+function App(props) {
 
   return (
     <div className="wdg__body">
       <div className="wdg__container">
-          <div>
-            <UserForm />
-          </div>
+        <div>
+          <UserForm />
+        </div>
       </div>
     </div>
   );

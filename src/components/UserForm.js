@@ -26,18 +26,6 @@ const UserForm = (props) => {
 
     const failStep = () => setStep(5);
 
-    const finalStep = (e) => {
-        e.preventDefault();
-        props.nextStep();
-        cookies.set('alreadySent', '1', { path: '/',  maxAge: 60*60*24*60 });
-        emailjs.sendForm('service_78fqymm', 'template_9mfx4qb', e.target, 'user_e4ij8RXSPRtg9MFe6Yw0l')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
-      }
-
     const handleChange = (value, name) => setForm({
         ...form,
         [name]: value

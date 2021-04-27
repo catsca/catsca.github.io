@@ -7,22 +7,26 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import Cookies from 'universal-cookie';
 import emailjs from 'emailjs-com';
+import Input from '@material-ui/core/Input';
 
 const Confirm = ({values, form, ...props}) => {
 
     const cookies = new Cookies();
-  
 
     const finalStep = (e) => {
         e.preventDefault();
-        props.nextStep();
+
+        const params = {
+            firstPerson: form.firstPersonName,
+            secondPerson: form.secondPersonName,
+            specialMn: form.specialMenu,
+            childrenNum: form.childrenNumber
+          };
+
         cookies.set('alreadySent', '1', { path: '/',  maxAge: 60*60*24*60 });
-        emailjs.sendForm('service_78fqymm', 'template_9mfx4qb', e.target, 'user_e4ij8RXSPRtg9MFe6Yw0l')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
+        emailjs.sendForm('service_78fqymm', 'template_9mfx4qb', '#contact-form', 'user_e4ij8RXSPRtg9MFe6Yw0l');
+       
+        props.nextStep();
     }
 
     const backStep = () => {
@@ -38,6 +42,12 @@ const Confirm = ({values, form, ...props}) => {
             <List>
                 <ListItem>
                     Si vii cu { form.secondPersonName}.
+                    <Input 
+                        id="secondPerson" 
+                        value={form.secondPersonName} 
+                        name="secondPerson"
+                        type="hidden"
+                    />
                 </ListItem>
             </List>
         )
@@ -51,6 +61,12 @@ const Confirm = ({values, form, ...props}) => {
             <List>
                 <ListItem>
                     Aduci 1 copil.
+                    <Input 
+                        id="childrenNum" 
+                        value={form.childrenNumber} 
+                        name="childrenNum"
+                        type="hidden"
+                    />
                 </ListItem>
             </List>
         )
@@ -59,6 +75,12 @@ const Confirm = ({values, form, ...props}) => {
             <List>
                 <ListItem>
                     Aduci { form.childrenNumber } copii.
+                    <Input 
+                        id="childrenNum" 
+                        value={form.childrenNumber} 
+                        name="childrenNum"
+                        type="hidden"
+                    />
                 </ListItem>
             </List>
         )
@@ -69,6 +91,12 @@ const Confirm = ({values, form, ...props}) => {
             <List>
                 <ListItem>
                         Si doresti de la meniu sa fie { form.specialMenu }.
+                        <Input 
+                            id="specialMn" 
+                            value={form.specialMenu} 
+                            name="specialMn"
+                            type="hidden"
+                        />
                 </ListItem>
             </List>
         )
@@ -84,10 +112,16 @@ const Confirm = ({values, form, ...props}) => {
 
     return (
         <MuiThemeProvider>
-            <React.Fragment>
+            <form onSubmit={finalStep} id="contact-form">
                 <List>
                     <ListItem>
                         Deci te cheama {form.firstPersonName}.
+                        <Input 
+                            id="firstPerson" 
+                            value={form.firstPersonName} 
+                            name="firstPerson"
+                            type="hidden"
+                        />
                     </ListItem>
                 </List>
 
@@ -120,7 +154,7 @@ const Confirm = ({values, form, ...props}) => {
                 </div>
                 </React.Fragment>
 
-            </React.Fragment>
+            </form>
         </MuiThemeProvider>
     )
 }
