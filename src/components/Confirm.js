@@ -8,6 +8,9 @@ import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import Cookies from 'universal-cookie';
 import emailjs from 'emailjs-com';
 import Input from '@material-ui/core/Input';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 const Confirm = ({values, form, ...props}) => {
 
@@ -54,7 +57,7 @@ const Confirm = ({values, form, ...props}) => {
         )
     } 
 
-    if(form.childrenAge && form.childrenAge == 'nope') {
+    if(form.childrenAge && form.childrenAge == 'yup') {
         ChildNumber = (''
         )
     } else {
@@ -115,6 +118,17 @@ const Confirm = ({values, form, ...props}) => {
 
     return (
         <MuiThemeProvider>
+            <AppBar>
+                <Toolbar>
+                    <Typography 
+                    variant="h6"
+                    align="center"
+                    style={{width: "100%"}}
+                    >
+                        Confirma datele de mai jos:
+                    </Typography>
+                </Toolbar>
+            </AppBar>
             <form onSubmit={finalStep} id="contact-form">
                 <List>
                     <ListItem>

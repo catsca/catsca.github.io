@@ -7,6 +7,9 @@ import Fade from '@material-ui/core/Fade';
 import MapIcon from '@material-ui/icons/Map';
 import CloseIcon from '@material-ui/icons/Close';
 import { FaUber, FaApple, FaGoogle, FaWaze } from 'react-icons/fa';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 const churchDestination = '44.47030101037744,26.104910955904465',
       restaurantDestination = '44.465484302605674,26.099108204121507';
@@ -17,7 +20,18 @@ const Success = (props) => {
     return (
         <MuiThemeProvider>
             <React.Fragment>
-                <h1>Ne bucuram tare mult ca o sa vii!</h1>
+            <AppBar>
+                    <Toolbar>
+                        <Typography 
+                        variant="h6"
+                        align="center"
+                        style={{width: "100%"}}
+                        >
+                            Ne bucuram tare mult ca o sa vii!
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <h4>Mai jos, poti vedea cum ajungi la cunuie si la petrecere</h4>
                 <Button
                     startIcon={< MapIcon />}
                     variant="contained"

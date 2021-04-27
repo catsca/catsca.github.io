@@ -3,6 +3,9 @@ import MuiThemeProvider from '@material-ui/styles/ThemeProvider';
 import Button from '@material-ui/core/Button';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CancelIcon from '@material-ui/icons/Cancel';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 
 const FormBoolean = (props) => {
@@ -17,6 +20,17 @@ const FormBoolean = (props) => {
 
     return (
         <MuiThemeProvider>
+            <AppBar>
+                    <Toolbar>
+                        <Typography 
+                        variant="h6"
+                        align="center"
+                        style={{width: "100%"}}
+                        >
+                           Esti invitat!
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
             <h1>Ne-a chemat!</h1>
             <div className="wdg__container_boolean">
                 <h2>Da' tu vii?</h2>
