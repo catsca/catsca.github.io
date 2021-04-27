@@ -6,12 +6,12 @@ export class FormUserDetails extends Component {
     render() { 
         return (
             <MuiThemeProvider>
-                <React.Fragment>
+                <div>
                     
                     <h1>Ne pare rau :(</h1>
-                    <p>Daca te razgandesti, ne poti contacta telefonic!</p>
+                    <h4>Daca te razgandesti, ne poti contacta telefonic!</h4>
 
-                </React.Fragment>
+                </div>
                </MuiThemeProvider>
            )
        }
