@@ -45,6 +45,7 @@ const FormUserMenu = ({values, handleChange, form, ...props}) => {
                         >
                         <MenuItem value={'normal'}>Nici una</MenuItem>
                         <MenuItem value={'vegan'}>Vegan</MenuItem>
+                        <MenuItem value={'vegetarian'}>Vegetarian</MenuItem>
                         <MenuItem value={'fara sare'}>Fara sare</MenuItem>
                         <MenuItem value={'cu alergii la'}>Cu alergii</MenuItem>
                     </Select>

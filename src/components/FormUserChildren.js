@@ -28,7 +28,7 @@ const FormUserChildren = ({values, handleChange, form, ...props}) => {
                         align="center"
                         style={{width: "100%"}}
                         >
-                           Si copii?
+                           Si copiii?
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -36,7 +36,7 @@ const FormUserChildren = ({values, handleChange, form, ...props}) => {
                 component="fieldset"  
             >
                 <FormLabel component="legend">
-                    Si copii? Aduci si copii?
+                    Aduci si copiii?
                 </FormLabel>
 
                 <RadioGroup
@@ -67,7 +67,7 @@ const FormUserChildren = ({values, handleChange, form, ...props}) => {
                     rows = {3}
                     rowsMax = {5}
                     variant="outlined"
-                    placeholder = "Cati ani au?"
+                    placeholder = "Cum ii cheama si cati ani au!"
                     label = "Inca ceva"
                     onChange={(e) => handleChange(e.target.value, 'childrenAge')}
                     defaultValue = { form.childrenAge }
