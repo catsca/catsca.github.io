@@ -1,5 +1,5 @@
 import './App.scss';
-import UserForm from './components/UserForm';
+import Success from './components/Success';
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from './theme'
@@ -12,7 +12,7 @@ function App(props) {
         <div className="wdg__body">
           <div className="wdg__container">
             <div>
-              <UserForm />
+              <Success />
             </div>
           </div>
         </div>
