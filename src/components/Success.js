@@ -57,7 +57,7 @@ const Success = (props) => {
                             
                             <div id="wdg-modal-description">
                                 
-                                <h4>Inspre Cununie si Biserica</h4>
+                                <h4>Inspre Cununie si Biserica, la ora 14:00</h4>
                                 <div className="wdg__container_btn wdg___small_font">
                                     
                                 <div>
@@ -111,7 +111,7 @@ const Success = (props) => {
 
                             <div id="wdg-modal-description">
                                 
-                                <h4>Inspre Nunta si Petrecere</h4>
+                                <h4>Inspre Nunta si Petrecere, la ora 15:00</h4>
                                 <div className="wdg__container_btn wdg___small_font">
                                     <div>
                                     <Button
