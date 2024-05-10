@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./App.css";
-import * as XLSX from "xlsx";
+import * as XLSX from "xlsx-js-style";
 
 function App() {
   const [data, setData] = useState(null);
