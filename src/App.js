@@ -125,9 +125,10 @@ function App() {
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.aoa_to_sheet([[]]); // Start with an empty sheet
 
-    // Custom style for vertical alignment in merged cells
-    const verticalAlignMiddle = {
+    // Custom styles in merged cells
+    const xlsxStyles = {
       alignment: { vertical: "center" },
+      font: { name: "Arial", sz: 12}
     };
 
     // Headers
@@ -176,7 +177,7 @@ function App() {
     materialMergeRanges.forEach((range) => {
       for (let r = range.s.r; r <= range.e.r; ++r) {
         const cellRef = XLSX.utils.encode_cell({ r: r, c: range.s.c });
-        ws[cellRef].s = verticalAlignMiddle;
+        ws[cellRef].s = xlsxStyles;
       }
     });
 
