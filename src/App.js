@@ -127,15 +127,15 @@ function App() {
 
     // Custom styles in merged cells
     const xlsxStyles = {
-      alignment: { vertical: "center" },
+      alignment: { vertical: "center", horizontal: "center" },
       font: { name: "Arial", sz: 12}
     };
 
     // Headers
     const headers = ["Nr. crt.", "Denumire", "Material", "Dimensiuni"];
-    XLSX.utils.sheet_add_aoa(ws, [headers], { origin: "A1" });
+    XLSX.utils.sheet_add_aoa(ws, [headers], { origin: "A1", ...xlsxStyles });
     XLSX.utils.sheet_add_aoa(ws, [["", "", "", "L", "l", "buc"]], {
-      origin: "A2",
+      origin: "A2", ...xlsxStyles,
     });
 
     // Adding data and tracking material merge ranges
@@ -231,7 +231,7 @@ function App() {
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        Drag and drop a .CRO file here, or click to select a file
+        Drag and drop a .cro file here, or click to select a file
       </div>
       <input
         type="file"
