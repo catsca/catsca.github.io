@@ -231,7 +231,7 @@ function App() {
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        Drag and drop a .cro file here, or click to select a file
+        Drag and drop a .CRO file here, or click to select a file
       </div>
       <input
         type="file"
