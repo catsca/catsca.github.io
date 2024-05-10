@@ -14,8 +14,8 @@ function App() {
     lines.forEach((line) => {
       if (line.startsWith("pY") || line.startsWith("pX")) {
         const parts = line.split("\t").map((part) => part.trim());
-        const length = parseInt(parts[1].replace("/", ""), 10);
-        const width = parseInt(parts[2].replace("/", ""), 10);
+        const length = parseInt(parts[line.startsWith("pY") ? 2 : 1].replace("/", ""), 10);
+        const width = parseInt(parts[line.startsWith("pY") ? 1 : 2].replace("/", ""), 10);
         const name = parts[6].split(" ")[0].replace("/", "");
         const code = parts[6].split(" ")[1].replace("/", "");
 
@@ -82,7 +82,6 @@ function App() {
       acc[item.code].push(item);
       return acc;
     }, {});
-    console.log('data is ', groupedData)
 
     let rowNumber = 1;
 
@@ -104,7 +103,7 @@ function App() {
         <tbody>
           {Object.entries(groupedData).map(([material, items]) => (
             <React.Fragment key={material}>
-              {items.map((item, index) => {console.log(items); return (
+              {items.map((item, index) => (
                 <tr key={`${material}-${index}`}>
                   <td>{rowNumber++}</td>
                   <td>{item.name}</td>
@@ -113,7 +112,7 @@ function App() {
                   <td>{item.width}</td>
                   <td>{item.count}</td>
                 </tr>
-              )})}
+              ))}
             </React.Fragment>
           ))}
         </tbody>
