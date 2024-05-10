@@ -82,6 +82,7 @@ function App() {
       acc[item.code].push(item);
       return acc;
     }, {});
+    console.log('data is ', groupedData)
 
     let rowNumber = 1;
 
@@ -103,7 +104,7 @@ function App() {
         <tbody>
           {Object.entries(groupedData).map(([material, items]) => (
             <React.Fragment key={material}>
-              {items.map((item, index) => (
+              {items.map((item, index) => {console.log(items); return (
                 <tr key={`${material}-${index}`}>
                   <td>{rowNumber++}</td>
                   <td>{item.name}</td>
@@ -112,7 +113,7 @@ function App() {
                   <td>{item.width}</td>
                   <td>{item.count}</td>
                 </tr>
-              ))}
+              )})}
             </React.Fragment>
           ))}
         </tbody>
